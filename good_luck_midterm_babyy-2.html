@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A little message for you 💗</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ffb6d9, #ffd6e8, #f8a8cf);
+    overflow: hidden;
+  }
+  .hearts { position: fixed; inset: 0; pointer-events:none; }
+  .heart {
+    position:absolute; color:#fff; opacity:.65; font-size:24px;
+    animation: float 6s infinite ease-in-out;
+  }
+  @keyframes float {
+    0%,100% { transform: translateY(20px) rotate(-10deg); }
+    50% { transform: translateY(-40px) rotate(10deg); }
+  }
+  .card {
+    width: min(90%, 430px);
+    min-height: 520px;
+    padding: 38px 25px;
+    border-radius: 28px;
+    background: rgba(255,255,255,.32);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 15px 50px rgba(150,40,100,.22);
+    text-align: center;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    border: 2px solid rgba(255,255,255,.55);
+  }
+  .open-btn {
+    border: none;
+    background: #ff4f9a;
+    color: white;
+    font-size: 24px;
+    font-weight: 700;
+    padding: 17px 52px;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(210,45,120,.3);
+    transition: .2s;
+  }
+  .open-btn:active { transform: scale(.95); }
+  .message { display:none; animation: pop .5s ease; }
+  @keyframes pop { from {opacity:0; transform:scale(.8)} to {opacity:1; transform:scale(1)} }
+  .emoji { font-size: 74px; margin-bottom: 20px; }
+  h1 {
+    margin: 0;
+    color:#b51d68;
+    font-size: clamp(30px, 8vw, 45px);
+    line-height:1.15;
+  }
+  p {
+    color:#7d2452;
+    font-size: 20px;
+    margin-top: 20px;
+  }
+  .tiny { margin-top:25px; font-size:15px; color:#a53b70; }
+</style>
+</head>
+<body>
+<div class="hearts">
+  <span class="heart" style="left:8%;top:15%">♡</span>
+  <span class="heart" style="left:82%;top:20%">♥</span>
+  <span class="heart" style="left:18%;top:75%">♡</span>
+  <span class="heart" style="left:75%;top:78%">♥</span>
+</div>
+
+<div class="card">
+  <button class="open-btn" id="open">OPEN 💌</button>
+  <div class="message" id="message">
+    <div class="emoji">🐰💗</div>
+    <h1>Good luck sa<br>midterm exam babyy 💕</h1>
+    <p>You got this! Believe in yourself. ✨</p>
+    <div class="tiny">I'm cheering for you! 🫶</div>
+  </div>
+</div>
+
+<script>
+document.getElementById("open").onclick = function() {
+  this.style.display = "none";
+  document.getElementById("message").style.display = "block";
+};
+</script>
+</body>
+</html>
